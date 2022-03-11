@@ -1,11 +1,51 @@
 {
   "users": [
     {
-      "email": "kenzinho@mail.com",
-      "password": "$2a$10$YQiiz0ANVwIgpOjYXPxc0O9H2XeX3m8OoY1xk7OGgxTnOJnsZU7FO",
-      "name": "Kenzinho",
-      "age": 38,
+      "email": "marcelo@mail.com",
+      "password": "$2a$10$UcxlGZ6zE4pCtBf0Nx7i2e/ES33LSO4yG1IDlZzRYN/fq1jNpMSQW",
       "id": 1
+    },
+    {
+      "email": "marcelo2@mail.com",
+      "password": "$2a$10$5VPGMpNE7pdYVvaFSDj/OuvBYnIPH7/.aAfkGQzeAacjfwYCHFO.G",
+      "id": 2
+    }
+  ],
+  "profile": [
+    {
+      "Name": "Marcelo2",
+      "Age": 29,
+      "Etc": "blablabla",
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "bankAccount": [
+    {
+      "userId": 1,
+      "account": 123456,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "account": 123456,
+      "id": 2
+    },
+    {
+      "account": 123456,
+      "userId": 1,
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "comment": "Parabéns pela promoção!",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "comment": "Parabéns pela promoção!",
+      "id": 2
     }
   ]
 }

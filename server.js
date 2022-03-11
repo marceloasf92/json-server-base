@@ -9,7 +9,10 @@ const router = jsonServer.router("db.json");
 app.db = router.db;
 
 const rules = auth.rewriter({
-  users: 600,
+  users: 600 /*O usuário deve possuir o recurso para gravar ou ler o recurso. */,
+  profile: 644 /*O usuário deve possuir o recurso para gravar o recurso.  Todos podem ler o recurso. */,
+  bankAccount: 600 /*O usuário deve possuir o recurso para gravar ou ler o recurso. */,
+  comments: 660 /*O usuário deve estar logado para gravar ou ler o recurso. */,
 });
 
 app.use(cors());

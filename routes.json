@@ -1,3 +1,6 @@
 {
-  "users": 600
+  "users": 600,
+  "profile": 644,
+  "bankAccount": 600,
+  "comments": 660
 }

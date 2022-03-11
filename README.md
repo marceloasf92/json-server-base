@@ -1,24 +1,87 @@
-# json-server-base
+### Níveis de segurança
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
-
-## Endpoints
-
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+**600** O usuário deve possuir o recurso para gravar ou ler o recurso.
+**644** O usuário deve possuir o recurso para gravar o recurso. Todos podem ler o recurso.
+**660** O usuário deve estar logado para gravar ou ler o recurso.
 
 ### Cadastro
 
-POST /register <br/>
-POST /signup <br/>
-POST /users
+POST /register
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
-
+{
+"email": "marcelo@mail.com",
+"password": "1234"
+}
 
 ### Login
 
-POST /login <br/>
-POST /signin
+POST /login
 
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+**EXEMPLO**
+
+{
+"email": "marcelo@mail.com",
+"password": "1234"
+}
+
+### Verificar usuário
+
+GET /users/:id - Sem corpo na requisição
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de segurança: 600
+
+### Inserir Profile
+
+POST /profile
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de segurança: 644
+
+**EXEMPLO**
+{
+"Name": "Marcelo2",
+"Age": 29,
+"Etc": "blablabla",
+"userId": 1 **Inserir o id do usuário para fazer o cadastro do profile**
+}
+
+### Ler Profile
+
+GET /profile - Sem corpo na requisição e sem token
+Nível de segurança: 644
+
+### Inserir Bank Account
+
+POST /bankAccount
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de segurança: 600
+
+**EXEMPLO**
+{
+"userId": 1, **Inserir o id do usuário para fazer o cadastro do profile**
+"account": 123456,
+"id": 1
+}
+
+### Ler Bank Account
+
+GET /bankAccount - Sem corpo na requisição
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de segurança: 600
+
+### Inserir Comentário
+
+POST /comments
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de Segurança: 660
+
+**EXEMPLO**
+{
+"userId": 1, **Inserir o id do usuário para fazer o cadastro do profile**
+"comment": "Parabéns pela promoção!"
+}
+
+### Ler Comentário
+
+GET /comments - Sem corpo na requisição
+Token: accessToken -> Informado no momento do cadastro ou login
+Nível de Segurança: 660
